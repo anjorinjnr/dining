@@ -12,7 +12,8 @@
     </IfModule>
 
     RewriteEngine On
-    RewriteBase /var/www/chefme/dining/server/public
+    # RewriteBase /var/www/chefme/dining/server/public
+
     # Redirect Trailing Slashes...
     RewriteRule ^(.*)/$ /$1 [L,R=301]
 
