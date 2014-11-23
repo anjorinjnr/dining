@@ -49,6 +49,11 @@ Route::get('/', function() {
   return ["status" => "alive here"];
 });
 
+Route::get('/log', function() {
+  //$student = Chefme\Models\Student::create(array('id' => 54, "current_balance"=>300)); 
+  return ["status" => "log here"];
+});
+
 App::missing(function($exception) {
   return Response::json(array("status" => "error", "message" => "Invalid API Call"));
 });
