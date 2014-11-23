@@ -120,7 +120,7 @@ return array(
 		|
 		*/
 
-		'model' => 'Neartutor\Models\User',
+		'model' => 'Chefme\Models\User',
 		
 		//'model' => 'Cartalyst\Sentry\Users\Eloquent\User',
 

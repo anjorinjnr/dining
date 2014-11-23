@@ -17,9 +17,26 @@
                     </a>
 
                     <div style="float: right" class="collapse navbar-collapse navbar-responsive-collapse">
+
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#/signup">Sign Up</a></li>
-                            <li><a href="/contact">Login</a></li>
+                            <li ng-show="!mainCtrl.authService.isLoggedIn()"><a href="#/signup">Sign Up</a></li>
+                            <li ng-show="!mainCtrl.authService.isLoggedIn()"><a ng-click="mainCtrl.login()">Login</a></li>
+                            <li ng-show="mainCtrl.authService.isLoggedIn()" class="dropdown">
+                                <a class="dropdown-toggle"
+                                   data-toggle="dropdown" role="button" aria-expanded="true"
+                                   href>{{mainCtrl.authService.currentUser().first_name}}<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#/account/home">Home</a></li>
+                                    <li><a href="#/cooks">My Meals</a></li>
+                                    <li><a href="#/edit/profile">Edit Profile</a></li>
+                                    <li><a href="#/accout">Account Profile</a></li>
+                                    <li><a href="#/logout">Signout</a></li>
+                                    <!--<li class="divider"></li>-->
+                                    <!--<li><a href="#">Separated link</a></li>-->
+                                </ul>
+                            </li>
+
+                            <li ng-show="mainCtrl.authService.isLoggedIn()"><a class="btn" href="/contact">Host A Meal</a></li>
                         </ul>
                     </div>
 

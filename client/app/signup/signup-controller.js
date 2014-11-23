@@ -25,8 +25,7 @@ define([], function () {
         form.submitted = true;
         if (form.$valid && this.user.password === this.user.confirm_password) {
             this.authService.signUp(this.user, function() {
-                var state = (self.user.user_type === 0) ? 'index.student.welcome' : 'index.tutor-complete-signup.profile';
-                self.state_.go(state);
+                self.state_.go('index.home');
             }, function(errors) {
                 self.signUpErrors = errors;
             });

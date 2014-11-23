@@ -23,13 +23,13 @@ define([], function () {
                     isArray: true
                 },
                 activate: {
-                  method: 'POST',
-                  url: API_PATH + 'user/activate',
-                  isArray: false
+                    method: 'POST',
+                    url: API_PATH + 'user/activate',
+                    isArray: false
                 }
             }
         );
-        User.uploadPhoto = function ($uploader, user_id, files) {
+        User.uploadPhoto = function ($uploader, user_id, files, onSuccess) {
             files.forEach(function (file) {
                 $uploader.upload({
                     url: API_PATH + 'user/' + user_id + '/upload/picture',
@@ -37,7 +37,12 @@ define([], function () {
                     data: {user_id: user_id},
                     file: file
                 }).success(function (data) {
-                    console.log(data);
+                    if (data.status === 'success') {
+                        if (angular.isFunction(onSuccess)) {
+                            onSuccess(data.paths);
+                        }
+                    }
+
                 });
 
             });

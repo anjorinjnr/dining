@@ -79,8 +79,32 @@ define(['components/auth/config'], function (config) {
                         templateUrl: 'home/home.html',
                         controller: 'HomeCtrl as homeCtrl'
                     }
+                },
+                data: {
+                    access: config.roles.USER
                 }
             })
+        .state('index.edit-profile', {
+            url: 'edit/profile',
+            views: {
+                'content@': {
+                    templateUrl: 'user/edit-profile.html',
+                    controller: 'UserCtrl as userCtrl'
+                }
+            },
+            data: {
+                access: config.roles.USER
+            }
+        })
+        .state('index.profile', {
+            url: 'profile',
+            views: {
+                'content@': {
+                    templateUrl: 'user/profile.html',
+                    controller: 'UserCtrl as userCtrl'
+                }
+            }
+        })
 
   };
   return ['$stateProvider', '$urlRouterProvider', StatesConfig];

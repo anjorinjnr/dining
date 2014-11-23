@@ -61,3 +61,47 @@
 .form-group label {
     padding-right: 10px;
 }
+.header .navbar-default .navbar-nav > .open > a,
+.header .navbar-default .navbar-nav > .open > a:hover,
+.header .navbar-default .navbar-nav > .open > a:focus {
+    color: #fff !important;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:hover, .navbar-default .navbar-nav>.open>a:focus {
+    background-color: transparent;
+    color: #fff;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
+    color: #fff;
+}
+
+.tab-v1 .nav-tabs > .active > a,
+.tab-v1 .nav-tabs > .active > a:hover,
+.tab-v1 .nav-tabs > .active > a:focus {
+    background:  #fff !important;
+    color: #e74c3c !important;
+
+}
+.tab-v1 .nav-tabs{
+    border-bottom: none !important;
+}
+
+li.active {
+    border-top: 1px solid #e74c3c;
+    border-left: 1px solid #e6e6e6;
+    border-right:  1px solid #e6e6e6;
+}
+.appointment li.active {
+    vertical-align: middle;
+    font-weight: bold;
+}
+.appointment li {
+    background-color: #f7f7f7;
+    vertical-align: middle;
+
+}
+
+.appointment li a{
+    font-size: 18px !important;
+    padding-top:   10px !important;
+    height: 50px;
+}

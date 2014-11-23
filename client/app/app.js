@@ -7,8 +7,7 @@ define([
     //'angular',
     'login/login-controller',
     'home/home-controller',
-    'student/student-controller',
-    'tutor/tutor-controller',
+    'user/user-controller',
     'main/main-controller',
     'signup/signup-controller',
     'search/search-controller',
@@ -29,7 +28,7 @@ define([
     'components/state-town-area-directive/sta-module',
     'components/subject/subject-directive/subj-module',
     'components/mail/mail-module',
-], function (LoginCtrl, HomeCtrl, StudentCtrl, TutorCtrl, MainCtrl, SignUpCtrl, SearchCtrl,
+], function (LoginCtrl, HomeCtrl, UserCtrl, MainCtrl, SignUpCtrl, SearchCtrl,
              StatesConfig, AuthService, UserService, TutorService, SearchService,
              SubjectService, MailService, JobService,
              scFilter, subjCategoryFilter, dateTimeFilter, ratingsDirective, InitRun) {
@@ -64,6 +63,7 @@ define([
         .service('jobService', JobService)
         .controller('LoginCtrl', LoginCtrl)
         .controller('HomeCtrl', HomeCtrl)
+        .controller('UserCtrl', UserCtrl)
         .controller('MainCtrl', MainCtrl)
         .controller('SearchCtrl', SearchCtrl)
         .controller('SignUpCtrl', SignUpCtrl)

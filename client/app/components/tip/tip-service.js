@@ -21,18 +21,20 @@ define([], function () {
   TipService.prototype.info = function (message) {
     this.tip.message = this.sce_.trustAsHtml(message);
     this.tip.style = this.styles.INFO;
+    this.tip.delay = 5000;
     return this;
   };
   TipService.prototype.loading = function () {
     this.tip.message = this.sce_.trustAsHtml('Loading..');
     this.tip.style = this.styles.INFO;
+    this.tip.delay = 5000;
     return this;
   };
   TipService.prototype.ajaxError = function () {
     this.tip.message = this.sce_.trustAsHtml(['An error has occurred, please try again or ',
       '<a href=\'\'>reload<a/> your browser'].join(''));
     this.tip.style = this.styles.ERROR;
-    this.delay = 1000000;
+    this.tip.delay = 1000000;
     this.show();
   };
   TipService.prototype.error = function (message) {

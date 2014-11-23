@@ -18,64 +18,18 @@ define(['./config', './session'], function (config, Session) {
         });
         var currentUser = null;
 
-        return  {
+        return {
             /*user: null, */
             setCurrentUser: function (user) {
                 currentUser = user;
             },
-            requestAccessToken: function () {
-                /**authenticate and request access token**/
-                /*$http.defaults.headers.post.access_token_preflight = true;
-                 $http.post(path + 'oauth/access_token', { grant_type: 'client_credentials',
-                 client_id: CLIENT_ID,
-                 client_secret: CLIENT_SECRET,
-                 scope: 'full_api'
-                 }).success(function(data){
-                 delete $http.defaults.headers.post.access_token_preflight;
-                 console.log(data);
-                 });*/
 
-            },
             redirectHome: function () {
                 if (this.isLoggedIn()) {
-                    switch (parseInt($cookieStore.get('user').user_type)) {
-                        case 0:
-                            console.log("student home");
-                            $state.go('index.student.home');
-                            break;
-                        case 1:
-                            console.log("tutor home");
-                            $state.go('index.tutor.home');
-
-                    }
+                    $state.go('index.home');
                 } else {
                     $state.go('index');
                 }
-
-                /* function home() {
-                 switch (parseInt(currentUser.user_type)) {
-                 case 0:
-                 console.log("student home");
-                 $state.go('index.student.home');
-                 break;
-                 case 1:
-                 console.log("tutor home");
-                 $state.go('index.tutor.home');
-
-                 }
-                 }
-
-                 if (this.isLoggedIn() && currentUser) {
-                 home();
-                 } else if (this.isLoggedIn) {
-
-                 $http.get(API_PATH + 'user/' + $cookieStore.get('user').user_id).then(function (data) {
-                 currentUser = data;
-                 home();
-                 });
-
-
-                 }*/
             },
             createSession: function (user) {
                 var session = {
@@ -85,17 +39,21 @@ define(['./config', './session'], function (config, Session) {
                 };
                 $cookieStore.put('user', session);
             },
-            login: function (user, error) {
+            login: function (user, onSuccess, onError) {
                 var self = this;
                 userService.login(user, function (data) {
                     if (data.status === 'success') {
-                        //self.user = JSON.parse(data.user);
+                        if (angular.isFunction(onSuccess)) {
+                            onSuccess();
+                        }
                         currentUser = JSON.parse(data.user);
                         self.createSession(currentUser);
                         self.redirectHome();
                     } else {
-                        error(data.errors);
-                        //$scope.loginError = data.error;
+                        if (angular.isFunction(onError)) {
+                            onError(data.errors);
+                        }
+
                     }
                 });
             },
@@ -124,17 +82,11 @@ define(['./config', './session'], function (config, Session) {
              state with student/tutor require logged in user of that user_type
              */
             authorize: function (role) {
-                //console.log($cookieStore.get('user'));
-                return true;
-               /* console.log("required role " + role);
                 if (config.roles.PUBLIC == role) {
                     return true;
-                } else if (this.isLoggedIn()) {
-                   var user_type = parseInt($cookieStore.get('user').user_type);
-                    return user_type === role;
-                } else {
-                    return false;
-                }*/
+                }
+                return this.isLoggedIn();
+
 
             },
 

@@ -27,12 +27,12 @@
     "autoload": {
         "classmap": [
             "app/commands",
-            "app/Dining/Controllers",
-            "app/Dining/Models",
-            "app/Dining/Repository",
-            "app/Dining/Validators",
-            "app/Dining/Services",
-            "app/Dining/Traits",
+            "app/Chefme/Controllers",
+            "app/Chefme/Models",
+            "app/Chefme/Repository",
+            "app/Chefme/Validators",
+            "app/Chefme/Services",
+            "app/Chefme/Traits",
             "app/database/migrations",
             "app/database/seeds",
             "app/tests/TestCase.php"

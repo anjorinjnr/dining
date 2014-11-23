@@ -42,8 +42,7 @@ define([], function () {
         event.preventDefault();
         authService.redirectHome();
       } else if (!authService.authorize(toState.data.access)) {
-        console.log("not authorized");
-      
+
         if (authService.isLoggedIn()) {
           event.preventDefault();
           authService.redirectHome();

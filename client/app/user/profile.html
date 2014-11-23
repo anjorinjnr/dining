@@ -1,0 +1,144 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-md-2" style="padding-left: 0px;padding-right: 0px">
+            <img ng-if="!userCtrl.user.photo_path"
+                 style="width: 200px; max-height: 200px"
+                 class="img-responsive profile-img margin-bottom-5"
+                 src="assets/img/Avatar.png" alt="">
+            <img ng-if="userCtrl.user.photo_path"
+                 style="height: 150px; width: 150px;"
+                 class="img-responsive profile-img margin-bottom-5"
+                 src=" {{uploadPath}}/pp/{{userCtrl.user.photo_path}}" alt="">
+        </div>
+        <div class="col-md-9">
+            <div>
+                <h2 style="float: left; margin-right: 10px;"><strong>{{userCtrl.user.first_name}}
+                    {{userCtrl.user.last_name}}</strong></h2>
+
+                <div style="float: left; padding-top: 15px;margin-right: 10px;">
+                    <star-rating rating="4"></star-rating>
+                </div>
+                <span style="float: left; padding-top: 15px; margin-right: 10px;">25 reviews</span>
+                <span style="float: left; padding-top: 10px; margin-right: 10px;">
+                    <img style="width: 32px; height: 32px" src="assets/img/fork13.png"> 50 reviews</span>
+                <span style="float:right;padding-top: 10px;">
+                    Pittsburgh, PA
+                </span>
+            </div>
+            <div style="clear: both">
+                <div>
+                    <p style="float: left">Member Since: 2014 <span style="margin-left: 5px">
+                        <img style="width: 20px; height: 19px" src="assets/img/verify.png"> Verified</span>
+                    </p>
+
+                    <p style="float: right">
+                        4.3 Miles
+                    </p>
+                </div>
+            </div>
+            <div style="clear: both">
+
+                <p style="width: 750px;">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                    when an unknown printer took a galley of type and scrambled it to make a type specimen book.x
+                </p>
+                <ul class="nav navbar-nav">
+                    <li><a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                           data-original-title="Facebook">
+                        <i class="fa fa-facebook"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                           data-original-title="Facebook">
+                        <i class="fa fa-twitter"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                           data-original-title="Facebook">
+                        <i class="fa fa-google-plus"></i>
+                    </a></li>
+                    <li><a href="#" class="tooltips" data-toggle="tooltip" data-placement="top" title=""
+                           data-original-title="Facebook">
+                        <i class="fa fa-linkedin"></i>
+                    </a></li>
+                </ul>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <div class="row margin-bottom-30">
+        <h4>Meals</h4>
+
+        <div>
+            <div style="float: right; margin-right: 40px;">
+                <button class="btn-u btn-u-xs  btn-u-red" type="button"><i class="fa fa-chevron-left"></i></button>
+                <button class="btn-u btn-u-xs  btn-u-red" type="button"><i class="fa fa-chevron-right"></i></button>
+            </div>
+        </div>
+        <div class="margin-bottom-10" style="clear: both"></div>
+        <div style="padding-left: 0px" class="col-md-4" ng-repeat="r in [1,2,3]">
+            <img style="width:345px; height: 300px;" src="../assets/img/image2.png" alt=""/>
+
+            <div style="margin-top: 18px;padding-right: 35px;">
+                <span style="float:left; font-size: 16px;"><strong><a href="#">Salted Roased Chicken</a></strong></span>
+                <span style="float:right"> <button class="btn-u btn-u-xs  btn-u-red" type="button">Book Meal
+                </button></span>
+            </div>
+            <div style="clear: both">
+                <star-rating rating="4"></star-rating>
+            </div>
+
+            <p>Italian Wine 1hr 46min</p>
+
+            <p>Beef, Tomato, Turkey, LMozzaralla</p>
+
+            <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="tab-v1">
+                <ul class="appointment nav nav-justified nav-tabs">
+                    <li  class="active"><a data-toggle="tab" href="#dates">Available Dates</a></li>
+                    <li><a data-toggle="tab" href="#payment">Payment Method</a></li>
+                    <li><a data-toggle="tab" href="#confpayment">Confirm Payment</a></li>
+                </ul>
+                <div class="tab-content">
+
+                    <div id="dates" class="profile-edit tab-pane fade in active">
+                        <form class="sky-form" id="sky-form" action="">
+
+                        </form>
+                    </div>
+
+
+                    <div id="payment" class="profile-edit tab-pane fade">
+                        <h2 class="heading-md">Manage your Security Settings</h2>
+                        <p>Change your password.</p>
+                        </br>
+                        <form class="sky-form" id="sky-form4" action="">
+
+                        </form>
+                    </div>
+
+                    <div id="confpayment" class="profile-edit tab-pane fade">
+                        <h2 class="heading-md">Manage your Payment Settings</h2>
+                        <p>Below are the payment options for your account.</p>
+                        </br>
+                        <form class="sky-form" id="sky-form" action="">
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
