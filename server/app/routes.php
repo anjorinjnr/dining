@@ -43,10 +43,10 @@ Route::group(['prefix' => 'v1'], function() {
 });
 
 
-
+ Route::post('login', 'Chefme\Controllers\LoginController@login');
 Route::get('/', function() {
   //$student = Chefme\Models\Student::create(array('id' => 54, "current_balance"=>300)); 
-  return ["status" => "alive"];
+  return ["status" => "alive here"];
 });
 
 App::missing(function($exception) {
