@@ -31,8 +31,13 @@ define(['./app'], function (app) {
 
 
     if (window) {
-        app.constant('UPLOAD_PATH', 'http://dining-service.local/uploads');
-        app.constant('API_PATH', 'http://dining-service.local/v1/');
+        if (window.location.origin.indexOf('chefme.co') >= 0) {
+            app.constant('UPLOAD_PATH', 'http://api.chefme.co/uploads');
+            app.constant('API_PATH', 'http://api.chefme.co/v1/');
+        } else {
+            app.constant('UPLOAD_PATH', 'http://dining-service.local/uploads');
+            app.constant('API_PATH', 'http://dining-service.local/v1/');
+        }
     }
     return app;
 });
