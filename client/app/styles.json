@@ -1,0 +1,21 @@
+[
+    "assets/vendor/bootstrap/dist/css/bootstrap.min.css",
+    "assets/styles/app.css",
+    "assets/styles/plugin.css",
+    "assets/styles/ie8.css",
+    "assets/styles/plugins/animate.css",
+    "assets/styles/plugins/box-shadows.css",
+    "assets/styles/style.css",
+    "assets/styles/pages/page_search.css",
+    "assets/styles/pages/profile.css",
+    "assets/styles/pages/page_404_error.css",
+    "assets/styles/plugins/line-icons/line-icons.css",
+    "assets/styles/plugins/font-awesome/css/font-awesome.min.css",
+    "assets/styles/plugins/flexslider/flexslider.css",
+    "assets/styles/plugins/parallax-slider/css/parallax-slider.css",
+    "assets/styles/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css",
+    "assets/vendor/chosen/chosen.min.css",
+    "assets/vendor/angular-motion/dist/angular-motion.min.css",
+    "assets/styles/themes/default.css",
+    "assets/styles/custom.css"
+]

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ChefMe</title>
+
+    <!-- Meta -->
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="" name="description"/>
+    <meta content="" name="author"/>
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <link href="assets/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/styles/chefme.css" rel="stylesheet">
+    <link href="assets/styles/app.css" rel="stylesheet">
+    <!--<link href="assets/styles/style.css" rel="stylesheet">-->
+    <!--<link href="assets/styles/pages/page_search.css" rel="stylesheet">-->
+    <!--<link href="assets/styles/pages/profile.css" rel="stylesheet">-->
+    <!--<link href="assets/styles/pages/page_404_error.css" rel="stylesheet">-->
+
+    <!-- CSS Implementing Plugins -->
+    <link rel="stylesheet" href="assets/styles/plugins/line-icons/line-icons.css">
+    <link rel="stylesheet" href="assets/styles/plugins/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/styles/plugins/flexslider/flexslider.css">
+    <link rel="stylesheet" href="assets/styles/plugins/parallax-slider/css/parallax-slider.css">
+    <link rel="stylesheet" href="assets/styles/plugins/sky-forms/version-2.0.1/css/custom-sky-forms.css">
+    <!-- DataTables CSS -->
+
+    <link href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" rel="stylesheet">
+    <link href="assets/vendor/chosen/chosen.min.css" rel="stylesheet">
+    <link href="assets/vendor/angular-motion/dist/angular-motion.min.css" rel="stylesheet">
+
+    <link href='http://fonts.googleapis.com/css?family=Titillium+Web' rel='stylesheet' type='text/css'>
+    <link href="assets/vendor/angular-slider-master/angular-slider.css" rel="stylesheet">
+
+
+    <!-- CSS Theme -->
+    <link rel="stylesheet" href="assets/styles/themes/red.css" id="style_color">
+
+    <!-- CSS Customization -->
+    <link rel="stylesheet" href="assets/styles/custom.css">
+
+
+</head>
+
+<body ng-controller="MainCtrl as mainCtrl">
+<div class="wrapper">
+    <div ui-view="header"></div>
+    <div style="min-height: 600px" ui-view="content"></div>
+    <div ui-view="footer"></div>
+    <script src="assets/vendor/headjs/dist/1.0.0/head.min.js"></script>
+    <script src="boot.js"></script>
+</div>
+</body>
+</html>

@@ -1,0 +1,2 @@
+ALTER TABLE `users` ADD `education` VARCHAR(75) NULL , ADD `major` VARCHAR(75) NULL , ADD `institution` VARCHAR(75) NULL , ADD `rate` DOUBLE NULL ;
+ALTER TABLE `messages` ADD `subject` TEXT NULL AFTER `id`;

@@ -1,0 +1,58 @@
+
+<div>
+
+    <style>
+        .sta-horizontal {
+            float:left;
+            margin-right: 10px;
+        }
+    </style>
+    <div class="form-group"
+         ng-class="{ 'has-error': form.state.$invalid && (!form.state.$pristine || form.submitted),
+                     'sta-horizontal': horizontal }">
+        <!--@if ($show_label)-->
+        <label ng-show="label" for="sel-state">State <span  ng-show="requiredFields.indexOf('s') >= 0" class="color-red">*</span></label>
+        <!--@endif-->
+        <select id="sel-state" name="state" class="sel-state form-control chosen-select"
+                ng-model="state"
+                ng-options="state.state_name for state  in states track by state.id"
+                required>
+            <option value="">{{stateDefault}}</option>
+            <!--<option ng-repeat="state in states" value="{{state.id}}">{{state.state_name}}</option>-->
+        </select>
+        <span ng-show="form.state.$invalid && (!form.state.$pristine || form.submitted)"
+              class="help-block">Your state is required.</span>
+
+    </div>
+    <div  class="form-group"
+          ng-class="{ 'has-error': form.town.$invalid && (!form.town.$pristine || form.submitted),
+           'sta-horizontal': horizontal }">
+        <!--@if ($show_label)-->
+        <label  ng-show="label" for="sel-town">Town <span ng-show="requiredFields.indexOf('t') >= 0" class="color-red">*</span></label>
+        <!--@endif-->
+        <select id="sel-town" name="town" class="form-control chosen-select"
+                ng-model="town"
+                ng-options="town.town_name for town in towns track by town.id" required>
+            <option value="">{{townDefault}}</option>
+            <!--<option ng-repeat="town in towns" value="{{town.id}}">{{town.town_name}}</option>-->
+        </select>
+          <span ng-show="form.town.$invalid && (!form.town.$pristine || form.submitted)"
+                class="help-block">Your town is required. Select the nearest town if yours is absent.</span>
+
+    </div>
+    <div class="form-group"
+          ng-class="{ 'has-error': form.area.$invalid && (!form.area.$pristine || form.submitted),
+           'sta-horizontal': horizontal }">
+        <!--@if ($show_label)-->
+        <label  ng-show="label" for="sel-area">Area <span ng-show="requiredFields.indexOf('a') >= 0"class="color-red">*</span></label>
+        <!--@endif-->
+        <select id="sel-area" name="area" class="form-control chosen-select"
+                ng-model="area"
+                ng-options="area.area_name for area in areas track by area.id"
+                required>
+            <option value="">{{areaDefault}}</option>
+        </select>
+         <span ng-show="form.area.$invalid && (!form.area.$pristine || form.submitted)"
+               class="help-block">Your area is required. Select the nearest area if yours is absent.</span>
+    </div>
+</div>

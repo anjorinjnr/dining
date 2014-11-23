@@ -1,0 +1,50 @@
+<div class="container content">
+    <div class="row margin-bottom-30">
+        <div class="col-md-12">
+
+            <form class="form-inline">
+                <div class="form-group search-option">
+                    <label>Zip Code:</label>
+                    <input type="email" class="form-control" style="width: 70px;">
+                </div>
+                <div class="form-group  search-option" style="margin-top: 5px;">
+                    <label style="float: left">Price:</label>
+
+                    <div style="float:left; width:200px;">
+                        <slider style="margin:0" floor="10" ceiling="60" ng-model-low="bla"
+                                ng-model-high="bla"></slider>
+                    </div>
+                </div>
+                <div class="form-group  search-option">
+                    <label style="float: left">Seats:</label>
+                    <input type="number" class="form-control" style="width: 70px;">
+                </div>
+                <div class="form-group  search-option">
+                    <label>Dates:</label>
+                    <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
+                    <input type="text" class="form-control" ng-model="selectedDate" name="date" bs-datepicker>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-3" ng-repeat="r  in [1,2,3,4,5,6,7,8,9]">
+            <img class="margin-bottom-10" style="width:255px" height="290px" src="assets/foodimages/food.png">
+            <h4><strong>Salted Rosted Chicken</strong></h4>
+
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+
+            <div>
+                <span style="float: left;">Pittsburgh, PA</span>
+                <span style="float: right;">Sat, Nov 22</span>
+            </div>
+            <div style="clear:both; margin-bottom: 45px" >
+                <star-rating rating="4"></star-rating>
+            </div>
+        </div>
+    </div>
+</div>

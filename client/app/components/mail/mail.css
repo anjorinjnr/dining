@@ -1,0 +1,35 @@
+.mail-read {
+  background-color: #f9f9f9;
+}
+
+h3{
+  color: red;
+}
+
+.mail-action, .mail-date{
+ width: 10%;
+}
+.mail-sender{
+width: 20%;
+}
+.mail-subject{
+
+}
+
+.chosen-container-multi .chosen-choices li.search-field input[type="text"] {
+  height: auto;
+}
+
+.message {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  font-family: inherit;
+  font-weight: 400;
+  border: 3px solid #d2d2cd;
+}
+.error {
+    border-color: #E45F5F;
+}

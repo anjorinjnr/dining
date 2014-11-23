@@ -1,0 +1,14 @@
+<div  class="profile-body">
+  <mail-detail>
+      <div class="actions">
+          <button
+                  ng-click="controller.goto(controller.state_.params.user_type=='tutor'?'index.tutor.reply':'index.student.reply',
+                  {id: controller.state_.params.id,
+                    mail_type: 'inbox', user_type: controller.state_.params.user_type})">
+              Reply <i class="fa fa-reply"></i></button>
+          <!--<button>Forward <i class="fa fa-angle-double-right"></i></button>
+          <button>Archive</button>
+          <button>Report Spam</button>-->
+      </div>
+  </mail-detail>
+</div>

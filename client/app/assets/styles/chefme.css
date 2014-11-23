@@ -1,0 +1,63 @@
+.navbar {
+    margin-bottom: 0;
+}
+.navbar-header {
+    width: 100%;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+.logo{
+    margin-top: 10px;
+}
+
+.main-logo{
+
+    width:120px;
+    display: block;
+    margin: auto;
+}
+.logo{
+    height: 25px;
+    width: 120px;
+}
+
+.top-img {
+    background-image: url('/assets/img/sliders/3.jpg');
+    min-height: 500px;
+    
+}
+
+.home-food-img {
+    width: 343px;
+    height: 285px;
+}
+
+.city-name {
+    color:#fff;
+    font-size: 30px;
+    padding-top:136px;
+    padding-bottom: 35px;
+
+}
+.city-info {
+    color: #fff;
+    font-size: 15px;
+
+}
+
+.search-option {
+
+    margin-right: 10px;
+
+}
+.search-option label{
+    float: left;
+}
+
+.slider {
+    margin: 0;
+}
+.form-group label {
+    padding-right: 10px;
+}

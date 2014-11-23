@@ -1,0 +1,43 @@
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="panel panel-default margin-bottom-40">
+      <div class="panel-heading" style="height: 45px">
+        <h3 style="float: left" class="panel-title"><i class="fa fa-inbox"></i>New Message</h3>
+      </div>
+      <div class="panel-body">
+        <form action="">
+          <div class="row margin-bottom-5">
+            <div class="col-md-2">
+              To:
+            </div>
+            <div class="col-md-8">
+              <!--<input type="text" class="form-control"/>-->
+              <select name="to" id="to" style="width:350px;" multiple data-placeholder=" "
+                      ng-model="mail.to"
+                      ng-options="user.id as (user.first_name + ' ' + user.last_name) for user in users"></select>
+            </div>
+          </div>
+          <div class="row margin-bottom-5">
+            <div class="col-md-2">
+              Subject:
+            </div>
+            <div class="col-md-8">
+              <input type="text" class="form-control" ng-model="mail.subject"/>
+            </div>
+          </div>
+          <div class="row" style="padding: 10px">
+            <textarea id="messageBody" ng-model="mail.body" style="width: 650px; height: 217px"></textarea>
+          </div>
+          <div class="row">
+            <div class="col-md-3">
+              <button class="btn-u" ng-click="send()"><i class="fa fa-envelope-o"></i> Send</button>
+              <button class="btn btn-default">Close</button>
+            </div>
+
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

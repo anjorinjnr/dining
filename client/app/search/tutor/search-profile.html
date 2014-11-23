@@ -1,0 +1,67 @@
+<!-- search profile view for tutors -->
+<style>
+    .yellow {
+        color: #f8be2c;
+    }
+
+    .tag-box {
+        margin-bottom: 10px;
+    }
+
+    .pager {
+        margin: 10px;
+    }
+</style>
+
+
+<div class="tag-box tag-box-v1" ng-repeat="tutor in searchCtrl.search.result.tutors.data">
+    <div class="row">
+        <div class="col-md-2 search-img">
+            <img width="130px" height="145px" class="img-responsive" src="images/default-ph.gif" alt="">
+
+        </div>
+        <div class="col-md-7">
+            <div style="margin-top: 5px" class="pull-right">
+                <span>
+                    {{tutor.area}} {{tutor.town}} {{tutor.state}}
+                </span>
+            </div>
+            <h3><a href="#">{{tutor.first_name}} {{tutor.last_name}}</a></h3>
+            <h4>{{tutor.profile_title}}</h4>
+
+            <p>{{tutor.profile_summary}}</p>
+        </div>
+        <div class="col-md-3 tutor-search-summary">
+            <h4 style="text-align: right; padding-bottom: 20px;">₦ {{tutor.rate}}/Hour</h4>
+            <ul class="list-unstyled ">
+                <li ng-show="tutor.feedbacks > 0"><i class="icon-comments-alt "></i> <span>{{tutor.feedbacks}} student feedback</span>
+                </li>
+
+                <li ng-show="tutor.ratings > 0">
+
+                    <span title="{{tutor.avg_rating}} of 5 stars">
+                        <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 1 }"></i>
+                        <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 1.5 }"></i>
+                        <i class="fa fa-star" ng-class="{ 'yellow':tutor.avg_rating >= 2.5 }"></i>
+                        <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 3.5 }"></i>
+                        <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 4.5  }"></i>
+                    </span>
+
+                    <span>  <ng-pluralize count="tutor.ratings"
+                                          when="{'1': '1 Rating.',
+                                          'other': '{} Ratings.' }">
+                        </ng-pluralize></span></li>
+            </ul>
+            <a ng-click="searchCtrl.openProfile(tutor)" class="btn btn-sm btn-success">View Tutor's Profile</a>
+        </div>
+
+    </div>
+</div>
+<div class="row">
+    <ul class="pager">
+            <li ng-show="searchCtrl.search.result.tutors.current_page > 1" class="previous">
+                <a href ng-click="searchCtrl.prev()">← Previous</a></li>
+            <li ng-show="searchCtrl.search.result.tutors.to < searchCtrl.search.result.tutors.total" class="next">
+                <a href ng-click="searchCtrl.next()">Next→</a></li>
+    </ul>
+</div>

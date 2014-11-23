@@ -1,0 +1,88 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+
+            <form name="signUpForm" class="reg-page" ng-submit="signupCtrl.signUp(signUpForm)" novalidate>
+                <div class="reg-header">
+                    <h2>{{signupCtrl.userType}} Registration</h2>
+                </div>
+
+
+                <div class="alert alert-danger" ng-show="signupCtrl.signUpErrors != undefined">
+                    <span ng-repeat="error in signupCtrl.signUpErrors">{{error}}</span>
+                </div>
+
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': signUpForm.firstname.$invalid && ( !signUpForm.firstname.$pristine || signUpForm.submitted )}">
+
+                    <label for="first_name">First Name <span class="color-red">*</span></label>
+                    <input id="first_name" class="form-control" name="firstname" type="text" ng-model="signupCtrl.user.firstname"
+                           required>
+                <span ng-show="signUpForm.firstname.$invalid && ( !signUpForm.firstname.$pristine || signUpForm.submitted )"
+                      class="help-block">Your first name is required.</span>
+
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': signUpForm.lastname.$invalid && (!signUpForm.lastname.$pristine || signUpForm.submitted) } ">
+                    <label for="last_name">Last Name <span class="color-red">*</span></label>
+                    <input class="form-control" name="lastname" type="text" id="last_name"
+                           ng-model="signupCtrl.user.lastname" required>
+                 <span ng-show="signUpForm.lastname.$invalid && (!signUpForm.lastname.$pristine || signUpForm.submitted)"
+                       class="help-block">Your last name is required.</span>
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': signUpForm.email.$invalid && (!signUpForm.email.$pristine|| signUpForm.submitted) } ">
+                    <label for="email">Email Address <span class="color-red">*</span></label>
+                    <input class="form-control" name="email" type="email" id="email" ng-model="signupCtrl.user.email"
+                           required>
+                  <span ng-show="signUpForm.email.$invalid && (!signUpForm.email.$pristine || signUpForm.submitted)"
+                        class="help-block">A valid email is required.</span>
+                </div>
+
+
+                <div class="row form-group">
+                    <div class="col-sm-6"
+                         ng-class="{ 'has-error': signUpForm.password.$invalid && (!signUpForm.password.$pristine || signUpForm.submitted) } ">
+                        <label for="password">Password <span class="color-red">*</span></label>
+                        <input
+                                class="form-control" name="password" type="password" id="password"
+                                ng-model="signupCtrl.user.password" required>
+                     <span ng-show="signUpForm.password.$invalid && (!signUpForm.password.$pristine || signUpForm.submitted)"
+                           class="help-block">Password is required.</span>
+                    </div>
+                    <div class="col-sm-6" ng-class="{ 'has-error': signupCtrl.user.password != signupCtrl.user.confirm_password }">
+                        <label for="password_confirmation">Confirm Password <span class="color-red">*</span></label>
+                        <input
+                                class="form-control" name="password_confirmation" type="password"
+                                id="password_confirmation" ng-model="signupCtrl.user.confirm_password">
+                        <span ng-show="signupCtrl.user.password != signupCtrl.user.confirm_password"
+                              class="help-block">Passwords don't match.</span>
+                    </div>
+
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-sm-12">
+                        <label class="checkbox">
+                            <input name="terms_agreed" type="checkbox" value="1" ng-model="signupCtrl.user.terms_agreed" required>
+                            I've
+                            read and agree to the <a
+                                href="http://neartutors/terms"
+                                class="color-green">Terms and
+                            Conditions</a>
+                         <span style="color: #a94442" ng-class="has-error"
+                               ng-show="signUpForm.terms_agreed.$invalid && (!signUpForm.terms_agreed.$pristine || signUpForm.submitted)"
+                               class="help-block">You must read and agree to our terms and conditions to register.</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <input class="btn-u" type="submit" value="Register">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

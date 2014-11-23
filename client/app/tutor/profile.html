@@ -1,0 +1,276 @@
+<div class="container content">
+<style>
+    .panel-title {
+
+    }
+</style>
+<div class="row tutor-profile">
+<!--Begin Sidebar Menu-->
+<div class="col-md-2 sidebar">
+    <img width="150px" height="150px" class="img-responsive tutor-image"
+         src="images/default-ph.gif" alt="">
+    <ul class="list-unstyled ">
+        <li>
+            <p><strong>Location:</strong> {{tutor.address}}</p>
+        </li>
+        <li>
+            <p><strong>Hourly Rate:</strong> ₦{{tutor.rate}}</p>
+        </li>
+        <li>
+            <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 1 }"></i>
+            <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 1.5 }"></i>
+            <i class="fa fa-star" ng-class="{ 'yellow':tutor.avg_rating >= 2.5 }"></i>
+            <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating  >= 3.5 }"></i>
+            <i class="fa fa-star" ng-class="{ 'yellow': tutor.avg_rating >= 4.5  }"></i>
+            (<a href="#">
+            <ng-pluralize count="tutor.ratings"
+                          when="{'0': 'No student rating',
+                                     '1': '1 student rating',
+                                     'other': '{} student ratings' }">
+            </ng-pluralize>
+        </a>)
+        </li>
+    </ul>
+</div>
+<!--End Sidebar Menu-->
+
+<!--Begin Content-->
+<div class="col-md-9">
+<h2 class="color-green">{{tutor.first_name}} {{tutor.last_name}}</h2>
+
+<p class="lead">{{tutor.profile_title}}</p>
+
+<div class="tab-v2">
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a href="#tab-1" data-toggle="tab">Tutor Profile</a>
+    </li>
+    <li>
+        <a href="#tab-2" data-toggle="tab">Subjects</a>
+    </li>
+    <li>
+        <a href="#tab-3" data-toggle="tab">Student Feedback</a>
+    </li>
+    <li>
+        <a href="#tab-4" data-toggle="tab">Email</a>
+    </li>
+</ul>
+<div class="tab-content">
+<!-- profile tab -->
+<div class="tab-pane active tutor-profile" id="tab-1">
+    <p>{{tutor.profile_summary}}</p>
+</div>
+<!-- subjects tab -->
+<div class="tab-pane" id="tab-2">
+    <!-- <h4>Subjects</h4>-->
+    <div class="panel-body">
+
+        <div class="panel-group acc-v1" id="accordion-1">
+
+            <p>Listed below are the subjects {{tutor.first_name}} is currently tutoring. Subjects with
+                demonstrable evidence of expertise are marked 'Verified'. You can read more about
+                the qualifications for each subject by clicking on the subject.</p>
+
+            <div class="panel panel-default" ng-repeat="subject in tutor.subjects">
+                <div class="panel-heading">
+                                    <span ng-show="subject.approved" class="badge badge-green"
+                                          style="float:right;">Verified</span>
+
+                    <h3 class="panel-title">
+                        <a class="accordion-toggl" data-toggle="collapse" data-parent="#accordion-1"
+                           href="#collapse{{$index}}">
+                            <strong>{{subject.title }}</strong>
+                        </a>
+
+                    </h3>
+                </div>
+
+                <div id="collapse{{$index}}" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5 class="text-info">{{tutor.first_name}}'s {{subject.title }}
+                                    Qualification</h5>
+                                {{subject.qualification }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--/acc-v1-->
+    </div>
+</div>
+<!-- feedback tab -->
+<div class="tab-pane" id="tab-3">
+    <div class="row" style="margin-top: 5px;">
+        <div class="col-md-8">
+            <ul class="list-unstyled" ng-repeat="feedback in tutor.feedbacks">
+                <li>
+                    <h4 class="text-danger">"{{feedback.subject }}"</h4>
+                </li>
+                <li>
+                    <p>{{feedback.comment }}
+                    </p>
+                    - {{feedback.student.first_name}}
+                    from {{feedback.student.address}} on {{feedback.created_at}}
+                </li>
+                <li>
+                    <hr/>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-4">
+            <h4>Ratings </h4>
+            <ul class="list-unstyled">
+                <li ng-repeat="rating in tutor.starRatings">
+                    <div class="row">
+                        <div class="col-md-2" style="width: 60px; padding-right: 0px"> {{rating.star}}
+                            star:
+                        </div>
+                        <div class="col-md-5" style="padding:3px; width:150px">
+                            <div style="width:150px; height: 14px; background: #cfcfcf;">
+
+                                <div style="width:{{rating.percentage}}%; height: 100%; background: #fabb2c;"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-3" style="padding-left: 10px;">({{rating.count}})
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- email tab -->
+<div class="tab-pane" id="tab-4">
+    <!-- email confirmation -->
+    <div ng-show="emailSent">
+        <h4 class="color-orange">Your message was successfully sent!</h4>
+
+        <p>Our tutors respond quickly. You should hear back from {{tutor.first_name}} very soon at your
+            <strong class="user-email">{{auth.currentUser().email}}</strong> email address</p>
+
+        <!-- account creation info -->
+        <div class="tag-box tag-box-v2" ng-show="accountCreated">
+            <h4>Welcome to NearTutors! We have created a free student account for you.</h4>
+
+            <p><strong>Username:</strong> <span>{{student.email}}</span></p>
+
+            <p><strong>Password:</strong> <span ng-hide="passwordChanged"><span>{{student.temp_password}}</span>
+                <button type="button" class="btn btn-u" ng-click="changePassword()">change password
+                </button></span><span ng-show="passwordChanged">Your password was successfully changed</span>
+        </div>
+        <!-- end of account creatio info -->
+        <a href="#/search/tutor" class="btn-u btn-u-blue btn-sm">Search for more tutors</a>
+        <a ui-sref="index.student.home" class="btn-u btn-u-blue btn-sm">Go to my profile</a>
+    </div>
+    <!--end of email confirmation -->
+    <form ng-hide="emailSent" name="messageForm" ng-submit="sendMessage(messageForm)" novalidate>
+        <h4>Tutor: <strong>{{tutor.first_name}} {{tutor.last_name}}</strong></h4>
+        <textarea class="form-control" rows="4" ng-model="contactEmail.message" name="message"
+                  placeholder="Explain your need for tutoring, ask questions about availability, experience and expertise."
+                  ng-minlength="200" required></textarea>
+         <span style="color: #a94442" ng-class="has-error"
+               ng-show="messageForm.message.$invalid && (!messageForm.message.$pristine || messageForm.submitted)"
+               class="help-block">Your must type of message of at least 250 characters.</span>
+
+        <div ng-if="!auth.isLoggedIn()">
+            <div class="contact-info">
+                <div class="headline"><h4>Contact Information</h4></div>
+                <div class="row">
+                    <div class="col-md-4 form-group"
+                         ng-class="{ 'has-error': messageForm.firstname.$invalid &&
+                                     ( !messageForm.firstname.$pristine || messageForm.submitted )}">
+                        <input type="text" class="form-control" ng-model="student.first_name"
+                               name="firstname" placeholder="First Name" required>
+                                    <span ng-show="messageForm.firstname.$invalid && ( !messageForm.firstname.$pristine || messageForm.submitted )"
+                                          class="help-block">Your first name is required.</span>
+                    </div>
+                    <div class="col-md-4  form-group"
+                         ng-class="{ 'has-error': messageForm.firstname.$invalid &&
+                                      ( !messageForm.firstname.$pristine || messageForm.submitted )}">
+                        <input type="text" class="form-control" ng-model="student.last_name"
+                               name="lastname" placeholder="Last Name" required>
+                                                             <span ng-show="messageForm.firstname.$invalid && ( !messageForm.firstname.$pristine || messageForm.submitted )"
+                                                                   class="help-block">Your last name is required.</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 form-group"
+                         ng-class="{ 'has-error': messageForm.email.$invalid &&
+                                      ( !messageForm.email.$pristine || messageForm.submitted )}">
+                        <input type="email" class="form-control" ng-model="student.email" name="email"
+                               placeholder="Email" required>
+                                 <span ng-show="messageForm.email.$invalid && ( !messageForm.email.$pristine || messageForm.submitted )"
+                                       class="help-block">Your email is required.</span>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 form-group">
+                        <input type="text" class="form-control" ng-model="student.phone"
+                               name="phone" placeholder="Phone Number">
+
+                        <p class="help-block">Do not add +234 or 234. Enter your 11 digits phone number </p>
+                    </div>
+                </div>
+
+                <statetownarea
+                        state-default="Select your state"
+                        town-default="Select your nearest town"
+                        area-default="Select your nearest area"
+                        selected-state="selectedState"
+                        selected-town="selectedTown"
+                        selected=selectedArea
+                        form="this.form"
+                        required-fields="sta"
+                        ng-model="student"></statetownarea>
+
+                <div class="row">
+                    <div class="col-md-4 form-group">
+                        <label>How did you hear about us?</label>
+                        <select ng-model="student.source"
+                                name="source" class="form-control">
+                            <option value="">Select how you heard about us</option>
+                            <option value="1">Word of mouth</option>
+                            <option value="2">One of our tutors</option>
+                            <option value="3">One of our students</option>
+                            <option value="4">In the news</option>
+                            <option value="5">Google</option>
+                            <option value="6">Facebook</option>
+                            <option value="7">Twitter</option>
+                            <option value="8">Radio</option>
+                            <option value="9">Poster or Flier</option>
+                            <option value="10">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8 form-group">
+                        <label class="checkbox">
+                            <input name="terms_agreed" type="checkbox" value="1" ng-model="student.terms_agreed"
+                                   required> I've
+                            read and agree to the <a
+                                href="http://neartutors/terms"
+                                class="color-green">Terms and
+                            Conditions</a>
+                         <span style="color: #a94442" ng-class="has-error"
+                               ng-show="messageForm.terms_agreed.$invalid && (!messageForm.terms_agreed.$pristine || messageForm.submitted)"
+                               class="help-block">You must read and agree to our terms and conditions.</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="margin-bottom-10"></div>
+        <button type="submit" id="send-message" class="btn-u btn-u-blue">Send Message</button>
+
+    </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

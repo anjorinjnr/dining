@@ -1,0 +1,17 @@
+
+@import url(../../components/mail/mail.css);
+@import url(../../components/tip/tip.css);
+
+.footer a {
+    color: #dadada;
+}
+
+.modal{
+    top: 50px;
+}
+
+/*.modal.in .modal-dialog {*/
+/*-webkit-transform: translate(0,0);*/
+/*-ms-transform: translate(0,0) !important;*/
+/*transform: translate(0,0);*/
+/*}*/

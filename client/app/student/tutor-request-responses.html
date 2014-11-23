@@ -1,0 +1,59 @@
+<div class="panel panel-default margin-bottom-40">
+  <div class="panel-heading">
+    <h3 class="panel-title">Tutor Applications</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row margin-bottom-10">
+      <div class="col-md-12">
+        <a href="/#/student/requests" class="btn btn-link">View All Tutor Requests</a>
+       {{jobFilter}}
+        <div style="float: right;"><label>Filter Requests: </label>
+          <select ng-model="studentCtrl.jobFilter"
+                  ng-options="(job.subject.title + ' request on ' + (job.created_at | formatdate:'YYYY-MM-DD':'MMM/DD'))
+                for job in studentCtrl.user.jobs">
+            <option value="">-- select a tutor request --</option>
+
+          </select>
+        </div>
+
+
+      </div>
+    </div>
+    <table class="table">
+      <tr ng-if="studentCtrl.user.jobs.length < 1">
+        <td>You have not posted any request for a tutor</td>
+      </tr>
+      <tr ng-if="studentCtrl.user.jobs.length > 0 && studentCtrl.user.tutorApplications.length === 0">
+        <td>No tutor has applied to your requests at this time.</td>
+      </tr>
+      <thead ng-if="studentCtrl.user.tutorApplications.length > 0">
+      <tr>
+        <th></th>
+        <th>Request</th>
+        <th>Tutor</th>
+        <th>Rate</th>
+        <th>Location</th>
+        <th>Application</th>
+        <th>Date</th>
+       <!-- <th></th> -->
+
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="app in studentCtrl.user.tutorApplications | filter:studentCtrl.filterAppByJob">
+        <td><input type="checkbox"></td>
+        <td>{{app.request_subject}} - {{app.request_date | formatdate:'YYYY-MM-DD':'MMM/DD'}}</td>
+        <td><a href="">{{app.tutor}}</a></td>
+        <td>₦{{app.rate}}</td>
+        <td>{{app.location}}</td>
+        <td><a href ng-click="studentCtrl.viewApplication(app)">View Application</a></td>
+        <td>{{app.created_at | formatdate:'YYYY-MM-DD':'DD/MM/YYYY'}}</td>
+        <!--<td>
+          <button class="btn btn-xs btn-default"><span aria-hidden="true" class="icon-envelope"></span> Contact Tutor</button>
+        </td>-->
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+

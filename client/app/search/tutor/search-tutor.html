@@ -1,0 +1,122 @@
+<div class="container content">
+    <style>
+        form {
+            padding: 10px;
+        }
+    </style>
+
+    <div class="row">
+        <!--Begin Sidebar Menu-->
+        <div class="col-md-3">
+            <ul class="list-group sidebar-nav-v1">
+                <li class="list-group-item active"><a href>SEARCH FOR TUTORS</a></li>
+
+                <li class="list-group-item">
+
+                    <form name="searchTutorForm" ng-submit="searchCtrl.submitSearch(searchTutorForm)" novalidate>
+                        <div style="padding: 5px;" ng-show="searchCtrl.search.errors.length > 0"
+                             class="alert alert-warning">
+                            <p class="text-danger" ng-repeat="error in searchCtrl.search.errors">{{error}} </p>
+                        </div>
+                        <div class="form-group">
+                            <label>Select Subject</label>
+                            <select-subject
+                                select="searchCtrl.search.qry.subject"
+                                selected-subject="searchCtrl.search.subject">
+
+                            </select-subject>
+                        </div>
+                        <statetownarea
+                            state-default="Select your state"
+                            town-default="Select your nearest town"
+                            area-default="Select your nearest area"
+                            selected-state="selectedState"
+                            selected-town="selectedTown"
+                            selected-area=selectedArea
+                            form="searchTutorForm"
+                            label="true"
+                            ng-model="searchCtrl.search"></statetownarea>
+                        <div class="form-group">
+                            <!--<a href="#">Advanced Search</a>-->
+                            <button type="submit" class="btn btn-default">Search</button>
+
+                        </div>
+                    </form>
+
+                </li>
+            </ul>
+        </div>
+        <!--End Sidebar Menu-->
+
+        <!--Begin Content-->
+        <div class="col-md-9">
+            <!-- header -->
+            <div class="row" style="margin-bottom: 10px;">
+                <div class="col-md-10">
+                    <div>
+
+                        <ng-pluralize count="searchCtrl.search.result.tutors.total"
+                                      when="{'0': 'There are currently no tutors found for {{searchCtrl.search.result.subject}}',
+                                      '1': '1 Tutor found for {{searchCtrl.search.result.subject}}',
+                                      'other': '{} tutors found for {{searchCtrl.search.result.subject}}.' }">
+                        </ng-pluralize>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div ng-show="searchCtrl.search.result.tutors.total > 0">
+                        <!-- search was done and  and tutors found, show sort filter -->
+                        <input type="hidden" name="subject" value="subject"/>
+                        <input type="hidden" name="state" value="state"/>
+                        <input type="hidden" name="town" value="town"/>
+                        <input type="hidden" name="area" value="area"/>
+                        <select ng-model="searchCtrl.search.qry.sort" ng-change="searchCtrl.sort()" ng-switch on="searchCtrl.search.qry.sort">
+                            <option value="5" ng-selected="searchCtrl.search.qry.sort == 5">Recent Tutors</option>
+                            <option value="4" ng-selected="searchCtrl.search.qry.sort == 4">Best Match</option>
+                            <option value="3" ng-selected="searchCtrl.search.qry.sort == 3">Highest Rating</option>
+                            <option value="1" ng-selected="searchCtrl.search.qry.sort == 1">Lowest Price</option>
+                            <option value="2" ng-selected="searchCtrl.search.qry.sort == 2">Highest Price</option>
+
+                            <!--<option>Distance</option>-->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- end header-->
+
+
+            <div class="row" ng-show="searchCtrl.search.result.tutors.total > 0">
+                <div class="col-md-12">
+                    <ng-include src="'search/tutor/search-profile.html'"></ng-include>
+                    <!--@include('tutor/search-profile')-->
+                </div>
+            </div>
+
+            <!-- search was done and  no results, show suggestion -->
+            <div class="row">
+                <hr style="padding-bottom: 15px; margin: 0px;"/>
+            </div>
+            <div class="row" ng-show="searchCtrl.search.result.tutors.total === 0">
+                <div class="col-md-12 no-results">
+                    <ul class="list-unstyled ">
+                        <li>
+                            <i class="fa fa-search icon-round icon-round-sm icon-color-green "></i>
+                            <span> Searching for a related subject or broadening the search area e.g to state level.</span>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope icon-round icon-round-sm icon-color-green"></i><span>
+                                <a class="btn-link" href="#">Submitting a request</a> for a tutor</span> and have interested
+                            tutors contact you directly.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row margin-bottom-2">
+                <div class="col-md-12">
+                    
+                </div>
+            </div>
+        </div>
+        <!--End Content-->
+    </div>
+
+</div>

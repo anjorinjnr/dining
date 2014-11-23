@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)https://forge.besnappy.com/widget/v1/faq -->
+<html class=" js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths" lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Snappy</title>
+
+			<link rel="stylesheet" type="text/css" href="widget.min.css">
+	
+	<script src="modernizr.min.js"></script>
+
+<style type="text/css"></style></head>
+<body>
+
+<div class="container">
+	<div id="search" class="search"></div>
+	<div id="navigation"></div>
+	<div id="content"></div>
+	<div id="contact"></div>
+</div>
+<div id="footer-region"></div>
+
+
+<script type="text/template" id="faq-home-mobile">
+	<p><a href="<%- faqUrl() %>" target="_blank" class="btn"><%- langGet('full_faq') %></a></p>
+	<% if (showContact()){ %>
+	<p>or</p>
+	<p><a href="#" class="btn contact"><%- langGet('contact_us') %></a></p>
+	<% } %>
+</script>
+
+<script type="text/template" id="item-template">
+	<a href="#"><%- getTitle() %></a>
+</script>
+
+<script type="text/template" id="faq-header-template">
+	<h1><%- getTitle() %></h1>
+</script>
+
+<script type="text/template" id="faq-header-question-template">
+	<h1><%- question %> <% if (hasTopic()) { %><a href="<%- getUrl(id) %>" target="_blank">#</a><% } %></h1>
+</script>
+
+<script type="text/template" id="topic-item-template">
+	<h3><%- getTitle() %></h3>
+	<div id="questions-region"></div>
+</script>
+
+<script type="text/template" id="question-item-template">
+	<% if (active) { %>
+	<a href="#"><%- getTitle() %></a>
+	<% } %>
+</script>
+
+<script type="text/template" id="no-questions">
+	<%- langGet('noresults') %>
+</script>
+
+<script type="text/template" id="question-template">
+	<div class="answer">
+		<%= parsed_answer %>
+	</div>
+</script>
+
+<script type="text/template" id="email-thank-you">
+	<h3><%- langGet('thank_you') %></h3>
+	<p><%- langGet('message_sent') %></p>
+</script>
+
+<script type="text/template" id="email-form">
+	<form>
+		<div class="form-group">
+			<input type="text" class="form-control" id="name" placeholder="<%- langGet('name') %>">
+		</div>
+		<div class="form-group">
+			<input type="email" class="form-control" id="email" placeholder="<%- langGet('email_address') %>">
+		</div>
+		<div class="form-group">
+			<input type="text" class="form-control" id="subject" placeholder="<%- langGet('subject') %>">
+		</div>
+		<div class="form-group">
+			<textarea class="form-control" id="message" placeholder="<%- langGet('message') %>"></textarea>
+		</div>
+
+		<div class="form-group center">
+			<input class="btn primary" type="submit" value="<%- langGet('send_message') %>">
+		</div>
+	</form>
+</script>
+
+<script type="text/template" id="footer">
+	<div class="left">
+		<% if (showBack()){ %>
+		<a href="#" class="back"><span>&laquo; </span> <%- langGet('back') %></a> |
+		<% } %>
+		<% if (showContact()){ %>
+		<a href="#" class="contact"><%- langGet('contact_us') %></a>
+		<% } %>
+	</div>
+	<div class="right">
+		Powered by
+		<a class="snappy" target="_blank" href="http://www.besnappy.com/?utm_source=widget&utm_medium=web&utm_campaign=ad_sn_widget">
+			Snappy
+		</a>
+	</div>
+</script>
+
+
+<script src="jquery.min(1).js"></script>
+
+	<script src="widget.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		window.SnappyWidget.start();
+	});
+	window.Locales = {"mk_MK":{"faqs":"\u0427\u041f\u041f","permalink":"\u0414\u0438\u0440\u0435\u043a\u0442\u0435\u043d \u043b\u0438\u043d\u043a \u0434\u043e \u043e\u0432\u0430\u0430 \u0441\u0435\u043a\u0446\u0438\u0458\u0430","top":"\u041d\u0430\u0458\u0433\u043e\u0440\u0435","search_results":"\u0420\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438 \u043e\u0434 \u043f\u0440\u0435\u0431\u0430\u0440\u0443\u0432\u0430\u045a\u0435\u0442\u043e","search_placeholder":"\u0422\u0435\u0440\u043c\u0438\u043d \u0437\u0430 \u043f\u0440\u0435\u0431\u0430\u0440\u0443\u0432\u0430\u045a\u0435","noresults":"\u041d\u0435\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438"},"fr_CA":{"faqs":"FAQs","permalink":"Faire un lien directement \u00e0 cette section","top":"Haut","search_results":"R\u00e9sultats de la recherche","search_placeholder":"Questions de la recherche","noresults":"Aucun r\u00e9sultat"},"cs_CZ":{"faqs":"FAQs","permalink":"Link directly to this section","top":"Top","search_results":"V\u00fdsledky vyhled\u00e1v\u00e1n\u00ed","search_placeholder":"Search questions","noresults":"\u017d\u00e1dn\u00e9 v\u00fdsledky"},"tr":{"faqs":"SSS","permalink":"Bu b\u00f6l\u00fcme do\u011frudan ba\u011flant\u0131","top":"\u00d6ne \u00c7\u0131kan","search_results":"Sonu\u00e7lar\u0131 Ara","search_placeholder":"Sorular\u0131 ara","noresults":"Sonu\u00e7 yok"},"pt_BR":{"faqs":"FAQs","permalink":"Linkar direto para esta se\u00e7\u00e3o","top":"Topo","search_results":"Resultados da Pesquisa","search_placeholder":"Pesquisar perguntas","noresults":"Nenhum resultado"},"it_IT":{"faqs":"Domande Frequenti","permalink":"Linka direttamente a questa sezione","top":"Inizio","search_results":"Risultati della ricerca","search_placeholder":"Ricerca le domande","noresults":"Nessun risultato"},"sk":{"faqs":"FAQs","permalink":"Odk\u00e1za\u0165 priamo na t\u00fato sekciu","top":"Na vrch","search_results":"V\u00fdsledky vyh\u013ead\u00e1vania","search_placeholder":"Search questions","noresults":"\u017diadne v\u00fdsledky"},"nl_NL":{"faqs":"FAQ","permalink":"Direct naar dit onderdeel linken","top":"Boven","search_results":"Zoekresultaten","search_placeholder":"Zoekvragen","noresults":"Geen resultaten","back":"Terug","full_faq":"Bekijk de volledige FAQ","contact_us":"Contacteer ons","thank_you":"Bedankt!","message_sent":"Uw bericht is verstuurd.","name":"Vul uw naam in","email_address":"Vul uw mailadres in","subject":"Voer uw onderwerp in","send_message":"Verstuur bericht","support_by":"Gestroomlijnde ondersteuning door"},"de":{"faqs":"FAQs","permalink":"Direkt hierher verlinken","top":"Nach oben","search_results":"Ergebnisse durchsuchen","search_placeholder":"Fragen durchsuchen","noresults":"Keine Ergebnisse","back":"Zur\u00fcck","full_faq":"Vollst\u00e4ndige FAQ anzeigen","contact_us":"Kontakt","thank_you":"Vielen Dank!","message_sent":"Ihre Nachricht wurde gesendet.","name":"Name eintragen","email_address":"e-Mail Adresse eintragen","subject":"Betreff eintragen","send_message":"Nachricht senden","support_by":"Streamlined support by "},"sr":{"faqs":"\u0427\u0435\u0441\u0442\u043e \u043f\u043e\u0441\u0442\u0430\u0432\u0459\u0430\u043d\u0430 \u043f\u0438\u0442\u0430\u045a\u0430","permalink":"\u041f\u043e\u0432\u0435\u0436\u0438\u0442\u0435 \u0434\u0438\u0440\u0435\u043a\u0442\u043d\u043e \u0441\u0430 \u043e\u0432\u043e\u043c \u0441\u0435\u043a\u0446\u0438\u0458\u043e\u043c","top":"\u0412\u0440\u0445","search_results":"\u0420\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438 \u043f\u0440\u0435\u0442\u0440\u0430\u0433\u0435","search_placeholder":"\u0423\u043f\u0438\u0442 \u0437\u0430 \u043f\u0440\u0435\u0442\u0440\u0430\u0433\u0443","noresults":"\u041d\u0435\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430"},"ru":{"faqs":"\u0427\u0430\u0412\u041e","permalink":"\u041f\u0440\u044f\u043c\u0430\u044f \u0441\u0441\u044b\u043b\u043a\u0430 \u043d\u0430 \u0440\u0430\u0437\u0434\u0435\u043b","top":"\u041d\u0430\u0432\u0435\u0440\u0445","search_results":"\u0420\u0435\u0437\u0443\u043b\u044c\u0442\u0430\u0442\u044b \u043f\u043e\u0438\u0441\u043a\u0430","search_placeholder":"\u041f\u043e\u0438\u0441\u043a \u0432\u043e\u043f\u0440\u043e\u0441\u043e\u0432","noresults":"\u041d\u0438\u0447\u0435\u0433\u043e \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e"},"el":{"faqs":"FAQs","permalink":"Link directly to this section","top":"Top","search_results":"\u0391\u03c0\u03bf\u03c4\u03b5\u03bb\u03ad\u03c3\u03bc\u03b1\u03c4\u03b1 \u03b1\u03bd\u03b1\u03b6\u03ae\u03c4\u03b7\u03c3\u03b7\u03c2","search_placeholder":"\u0391\u03bd\u03b1\u03b6\u03ae\u03c4\u03b7\u03c3\u03b7 \u03b5\u03c1\u03c9\u03c4\u03ae\u03c3\u03b5\u03c9\u03bd","noresults":"\u039a\u03b1\u03bd\u03ad\u03bd\u03b1 \u03b1\u03c0\u03bf\u03c4\u03ad\u03bb\u03b5\u03c3\u03bc\u03b1"},"sv_SE":{"faqs":"FAQs","permalink":"Direktl\u00e4nk till denna sektion","top":"Till toppen","search_results":"S\u00f6kresultat","search_placeholder":"S\u00f6k bland fr\u00e5gor","noresults":"Inga resultat"},"ca":{"faqs":"FAQs","permalink":"Enlla\u00e7 directe a aquesta secci\u00f3","top":"Amunt","search_results":"Resultats de la cerca","search_placeholder":"Cercar preguntes","noresults":"Cap resultat"},"fr_FR":{"faqs":"Foire aux questions","permalink":"Acc\u00e9der directement \u00e0 cette section","top":"Haut","search_results":"R\u00e9sultats de la recherche","search_placeholder":"Questions de la recherche","noresults":"Aucun r\u00e9sultat","back":"Retour","full_faq":"Voir la FAQ compl\u00e8te","contact_us":"Nous contacter","thank_you":"Merci !","message_sent":"Votre message a \u00e9t\u00e9 envoy\u00e9.","name":"Saisissez votre nom","email_address":"Saisissez votre email","subject":"Saisissez votre sujet","send_message":"Envoyer le message","support_by":"Support facilit\u00e9 par"},"pt":{"faqs":"FAQs","permalink":"Link direto para esta se\u00e7\u00e3o","top":"Topo","search_results":"Resultados da Pesquisa","search_placeholder":"Pesquisar perguntas","noresults":"N\u00e3o foram encontrados resultados"},"es":{"faqs":"FAQs","permalink":"Enlace directo a esta secci\u00f3n","top":"Arriba","search_results":"Resultados de su b\u00fasqueda","search_placeholder":"Buscar en las preguntas","noresults":"No hay resultados.","back":"Regresar","full_faq":"Ver todas las FAQ","contact_us":"Cont\u00e1ctenos","thank_you":"\u00a1Gracias!","message_sent":"Su mensaje ha sido enviado.","name":"Ingrese su nombre","email_address":"Ingrese su correo electr\u00f3nico","subject":"Ingrese su asunto","message":"Ingresar Mensaje","send_message":"Enviar mensaje","support_by":"Apoyo optimizado por"},"en":{"faqs":"FAQs","permalink":"Link directly to this section","top":"Top","search_results":"Search Results","search_placeholder":"Search questions","noresults":"No results","back":"Back","full_faq":"View Full Faq","contact_us":"Contact Us","thank_you":"Thank you!","message_sent":"Your message has been sent.","name":"Enter your name","email_address":"Enter your email address","subject":"Enter your subject","message":"Enter your message","send_message":"Send Message","support_by":"Streamlined support by "},"pl":{"faqs":"FAQs","permalink":"Owo\u0142uje si\u0119 bezpo\u015brednio do tej sekcji","top":"Do g\u00f3ry","search_results":"Wyniki wyszukiwania","search_placeholder":"Zapytanie wyszukiwania","noresults":"Brak wynik\u00f3w"},"da_DK":{"faqs":"FAQs","permalink":"Link direkte til denne sektion","top":"Til toppen","search_results":"S\u00f8ge resultater","search_placeholder":"S\u00f8g efter sp\u00f8rgsm\u00e5l","noresults":"Ingen resultater"}};
+</script>
+
+
+
+</body></html>

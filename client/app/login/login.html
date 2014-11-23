@@ -1,0 +1,66 @@
+<div class="container content">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <form name="loginForm" class="reg-page" ng-submit="loginCtrl.login(loginForm)" novalidate>
+                <div class="reg-header">
+                    <h2>Login to your account</h2>
+                </div>
+
+
+                <div class="alert alert-danger" ng-show="loginCtrl.loginError !== undefined">
+                    {{loginCtrl.loginError}}
+                </div>
+              <div class="alert"
+                   ng-class="{'alert-info': loginCtrl.activate.valid,
+                              'alert-danger': !loginCtrl.activate.valid}"
+                   ng-show="loginCtrl.activate" >
+                 {{loginCtrl.activate.message}}
+              </div>
+
+
+                <div class="form-group"
+                     ng-class="{ 'has-error': loginForm.email.$invalid && ( !loginForm.email.$pristine || loginForm.submitted ) }">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                        <input type="email" name="email" ng-model="loginCtrl.user.email" class="form-control"
+                               placeholder="Email Address"
+                               required/>
+                    </div>
+                <span ng-show="loginForm.email.$invalid && ( !loginForm.email.$pristine || loginForm.submitted )"
+                      class="help-block">email is required.</span>
+                </div>
+                <div class="form-group"
+                     ng-class="{ 'has-error': loginForm.password.$invalid && ( !loginForm.password.$pristine || loginForm.submitted ) }">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                        <input type="password" ng-model="loginCtrl.user.password" name="password" class="form-control"
+                               placeholder="Password"
+                               required/>
+                    </div>
+                    <span ng-show="loginForm.password.$invalid && ( !loginForm.password.$pristine || loginForm.submitted )"
+                          class="help-block">password is required.</span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label class="checkbox"><input type="checkbox" ng-model="loginCtrl.user.remember"> Stay signed in</label>
+                    </div>
+                    <div class="col-md-6">
+                        <input class="btn-u pull-right" type="submit" value="Login">
+                    </div>
+                </div>
+
+                <hr>
+
+                <h4>Forget your Password ?</h4>
+
+                <p>no worries, it happens! <a class="color-green" ui-sref="index.forgotpassword">click here</a> to reset
+                    your
+                    password.</p>
+
+
+                <hr>
+            </form>
+        </div>
+    </div>
+</div>

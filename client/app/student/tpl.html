@@ -1,0 +1,137 @@
+<!--=== Profile ===-->
+<div class="profile">
+    <div class="container content">
+        <div class="row">
+            <!--Left Sidebar-->
+            <div class="col-md-3 md-margin-bottom-40">
+                <img class="img-responsive profile-img margin-bottom-20" style="height: 80px; width: 100px;" src="../assets/img/team/5.jpg" alt="">
+
+                <ul class="list-group sidebar-nav-v1 margin-bottom-40" id="sidebar-nav-1">
+                    <li class="list-group-item" ng-class="{ 'active': studentCtrl.active == 'home'}">
+                        <a href ng-click="studentCtrl.goto('index.student.home', {active: 'home'})"><i class="fa fa-home"></i> Home</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href ng-click="studentCtrl.goto('index.student.lesson', {active: 'lessons'})"><i class="fa fa-user"></i> Lessons</a>
+                    </li>
+                    <li class="list-group-item list-toggle" ng-class="{ 'active': studentCtrl.active == 'mail'}">
+                        <a data-toggle="collapse" href="#mail-buttons"><i
+                                class="fa fa-envelope"></i> Mail</a>
+
+                        <ul class="collapse" id="mail-buttons">
+                            <li ng-class="{ 'active': studentCtrl.subActive == 'compose'}">
+                                <a href ng-click="studentCtrl.goto('index.student.mail-compose', {subActive: 'compose'})">
+                                <i class="fa fa-pencil-square-o "></i> Compose</a>
+                             </li>
+                            <li ng-class="{ 'active': studentCtrl.subActive == 'inbox'}">
+                                <a href ng-click="studentCtrl.goto('index.student.mail-inbox', {subActive: 'inbox', user_type: 'student'})">
+                                <i class="fa fa-inbox"></i> Inbox</a>
+                            </li>
+                            <li ng-class="{ 'active': studentCtrl.subActive == 'sent'}">
+                                <a href ng-click="studentCtrl.goto('index.student.mail-sent', {subActive: 'sent'})">
+                                <i class="fa  fa-share-square-o"></i> Sent</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="list-group-item" ng-class="{ 'active': studentCtrl.active == 'payments'}">
+                        <a href ng-click="studentCtrl.goto('index.student.payments', {active: 'payments'})">
+                            <i class="fa fa-user"></i> Payments
+                        </a>
+                    </li>
+                    <li class="list-group-item" ng-class="{ 'active': studentCtrl.active == 'requests'}">
+                        <a href ng-click="studentCtrl.showRequests()"><i class="fa fa-exchange"></i> Tutor Requests</a>
+                    </li>
+                </ul>
+
+                <!-- <div class="panel-heading-v2 overflow-h">
+                     <h2 class="heading-xs pull-left"><i class="fa fa-bar-chart-o"></i> Task Progress</h2>
+                     <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                 </div>
+                 <h3 class="heading-xs">Web Design <span class="pull-right">92%</span></h3>
+                 <div class="progress progress-u progress-xxs">
+                     <div style="width: 92%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="92" role="progressbar" class="progress-bar progress-bar-u">
+                     </div>
+                 </div>
+                 <h3 class="heading-xs">Unify Project <span class="pull-right">85%</span></h3>
+                 <div class="progress progress-u progress-xxs">
+                     <div style="width: 85%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="85" role="progressbar" class="progress-bar progress-bar-blue">
+                     </div>
+                 </div>
+                 <h3 class="heading-xs">Sony Corporation <span class="pull-right">64%</span></h3>
+                 <div class="progress progress-u progress-xxs margin-bottom-40">
+                     <div style="width: 64%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="64" role="progressbar" class="progress-bar progress-bar-dark">
+                     </div>
+                 </div>
+
+                 <hr> -->
+
+                <!--Notification-->
+                <!--<div class="panel-heading-v2 overflow-h">
+                    <h2 class="heading-xs pull-left"><i class="fa fa-bell-o"></i> Notification</h2>
+                    <a href="#"><i class="fa fa-cog pull-right"></i></a>
+                </div>
+                <ul id="scrollbar5" class="list-unstyled contentHolder margin-bottom-20">
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-red icon-line icon-envelope"></i>
+                        <div class="overflow-h">
+                            <span><strong>Albert Heller</strong> has sent you email.</span>
+                            <small>Two minutes ago</small>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" src="assets/img/testimonials/img6.jpg" alt="">
+                        <div class="overflow-h">
+                            <span><strong>Taylor Lee</strong> started following you.</span>
+                            <small>Today 18:25 pm</small>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-yellow icon-line fa fa-bolt"></i>
+                        <div class="overflow-h">
+                            <span><strong>Natasha Kolnikova</strong> accepted your invitation.</span>
+                            <small>Yesterday 1:07 pm</small>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" src="assets/img/testimonials/img1.jpg" alt="">
+                        <div class="overflow-h">
+                            <span><strong>Mikel Andrews</strong> commented on your Timeline.</span>
+                            <small>23/12 11:01 am</small>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <i class="icon-custom icon-sm rounded-x icon-bg-blue icon-line fa fa-comments"></i>
+                        <div class="overflow-h">
+                            <span><strong>Bruno Js.</strong> added you to group chating.</span>
+                            <small>Yesterday 1:07 pm</small>
+                        </div>
+                    </li>
+                    <li class="notification">
+                        <img class="rounded-x" src="assets/img/testimonials/img6.jpg" alt="">
+                        <div class="overflow-h">
+                            <span><strong>Taylor Lee</strong> changed profile picture.</span>
+                            <small>23/12 15:15 pm</small>
+                        </div>
+                    </li>
+                </ul>
+                <button type="button" class="btn-u btn-u-default btn-u-sm btn-block">Load More</button>
+                <!--End Notification-->
+
+                <div class="margin-bottom-50"></div>
+
+            </div>
+            <!--End Left Sidebar-->
+
+            <div class="col-md-9">
+                <!--Profile Body-->
+                <div class="profile-body margin-bottom-20" ui-view="view-content">
+
+                    <!--End Profile Blog-->
+                </div>
+                <!--End Profile Body-->
+            </div>
+        </div>
+        <!--/end row-->
+    </div>
+    <!--/container-->
+</div>
+<!--=== End Profile ===-->

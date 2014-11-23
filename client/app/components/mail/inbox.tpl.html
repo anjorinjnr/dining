@@ -1,0 +1,58 @@
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="panel panel-default margin-bottom-40">
+      <div class="panel-heading" style="height: 45px">
+        <h3 style="float: left" class="panel-title"><i class="fa fa-inbox"></i> Inbox</h3>
+        <div class="pull-right" ng-if="inboxCtrl.messages.total > 0">
+          <span style="float: left; padding-top: 5px"> {{inboxCtrl.messages.from}}-{{inboxCtrl.messages.to}} of {{inboxCtrl.messages.total}}  </span>
+          <ul style="float: left; margin: 0 5px 0 5px;" class="pager">
+            <li><a ng-click="inboxCtrl.prevPage()" href><i class="fa fa-angle-left"></i></a></li>
+            <li><a ng-click="inboxCtrl.nextPage()" href><i class="fa fa-angle-right"></i></a></li>
+          </ul>
+        </div>
+      </div>
+
+
+     	  <!-- inbox  table -->
+	  <table class="table">
+		<tr ng-if="inboxCtrl.messages.total < 1">
+		  <td>You currently have no messages</td>
+		</tr>
+		<thead ng-if="inboxCtrl.messages.total > 0">
+		  <tr style="height: 55px">
+			<th colspan="4">
+			  <input type="checkbox" ng-click="inboxCtrl.masterSelect()">
+			  <button ng-click="inboxCtrl.deleteMessage()" style="margin-left: 10px" ng-show="inboxCtrl.selected.length > 0"
+					  class="btn btn-default" type="button">
+				<i class="fa fa-trash-o"></i>
+			  </button>
+		<div class="input-group animated fadeInDown pull-right">
+		  <input type="text" ng-model="query" class="form-control" placeholder="search inbox..">
+		  <span class="input-group-btn">
+			<button class="btn-u" ng-click="inboxCtrl.search(query)" ype="button">Go</button>
+		  </span>
+		</div>
+		</th>
+
+		</tr>
+		</thead>
+		<tbody ng-if="inboxCtrl.messages.total > 0">
+		  <tr ng-class="{'mail-read': message.status === '1' }" ng-repeat="message in inboxCtrl.messages.data">
+			<td class="mail-action">
+			  <input type="checkbox" ng-click="inboxCtrl.selectMail(message)" ng-checked="message.checked || inboxCtrl.master">
+			</td>
+			<td class="mail-sender">From: {{message.sender}}</td>
+			<td class="mail-subject"><a href ng-href="/#/{{inboxCtrl.user_type}}/mail/{{message.id}}">{{message.subject}}</a></td>
+			<td class="mail-date">{{message.created_at| formatdate:'YYYY-MM-DD':'DD/MM/YYYY'}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	  <!--end inbox table -->
+
+    </div>
+    <!--/end row-->
+
+  </div>
+
+</div>

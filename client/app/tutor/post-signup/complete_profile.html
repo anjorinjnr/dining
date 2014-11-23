@@ -1,0 +1,61 @@
+<div class="alert alert-warning fade in" ng-show="!tutorCtrl.user.activated">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    Your email is yet to be confirmed.
+    <button ng-click="tutorCtrl.resendConfirmation();" type="button" class="btn-u btn-sm">Resend confirmation email</button>
+</div>
+
+
+<form class="margin-bottom-40" role="form">
+    <h4>Personal Information</h4>
+    <p class="muted">Please provide additional information to help us better match you with students.</p>
+    <div class="form-group">
+        <label>Gender</label>
+        <select class="form-control" ng-model="tutorCtrl.user.gender">
+            <option value="">Select your gender</option>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <input type="text" class="form-control" ng-model="tutorCtrl.user.dob" placeholder="DD/MM/YYYY">
+    </div>
+    <div class="form-group">
+        <label>Phone Number</label>
+        <input type="text" class="form-control" ng-model="tutorCtrl.user.phone_number">
+    </div>
+
+    <h4>Education</h4>
+
+    <div class="form-group">
+        <label>Highest Level of Education</label>
+        <select class="form-control" ng-model="tutorCtrl.user.tutor.education">
+            <option value="">Select your education</option>
+            <option value="Primary">Primary</option>
+            <option value="Secondary">Secondary</option>
+            <option value="Bachelors">Bachelors</option>
+            <option value="Masters">Masters</option>
+            <option value="Doctorate">Doctorate</option>
+            <option value="Professional">Professional</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label>Major</label>
+        <input type="text" class="form-control" ng-model="tutorCtrl.user.tutor.major" placeholder="course of study/area of specialization">
+    </div>
+    <div class="form-group">
+        <label>College/University/Institution</label>
+        <input type="text" class="form-control" ng-model="tutorCtrl.user.tutor.institution" placeholder="">
+    </div>
+
+    <h4>Hourly Rate</h4>
+
+    <p class="muted">Please choose an hourly rate to charge students. NearTurtors' commission is between 20% and 40% of
+        this amount.
+        Most tutors charge between #100 - #400 per hour.</p>
+
+    <div class="form-group">
+        <input type="text" class="form-control" ng-model="tutorCtrl.user.tutor.rate" placeholder="hourly rate">
+    </div>
+</form>

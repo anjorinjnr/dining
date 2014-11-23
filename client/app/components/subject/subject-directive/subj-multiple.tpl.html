@@ -1,0 +1,6 @@
+<select data-placeholder="Select one or more subjects"
+        class="form-control"
+        ng-model="selectedSubjects"
+        ng-options="subject.title for subject in subjects track by subject.id"
+        multiple>
+</select>

@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-12">
+	<div class="panel panel-default margin-bottom-40">
+	  <div class="panel-heading" style="height: 45px">
+		<h3 style="float: left" class="panel-title"><i class="fa fa-share-square-o"></i> Sent Messages</h3>
+
+		<div style="float: right" ng-if="sentCtrl.messages.total > 0">
+		  <span style="float: left; padding-top: 5px"> {{sentCtrl.messages.from}}-{{sentCtrl.messages.to}} of {{sentCtrl.messages.total}}  </span>
+		  <ul style="float: left; margin: 0 5px 0 5px;" class="pager">
+			<li><a ng-click="sentCtrl.prevPage()" href><i class="fa fa-angle-left"></i></a></li>
+			<li><a ng-click="sentCtrl.nextPage()" href><i class="fa fa-angle-right"></i></a></li>
+		  </ul>
+		</div>
+
+	  </div>
+
+
+	  <!-- sent  table -->
+	  <table class="table">
+		<tr ng-if="sentCtrl.messages.total < 1">
+		  <td>You currently have no sent messages</td>
+		</tr>
+		<thead ng-if="sentCtrl.messages.total > 0">
+		  <tr style="height: 55px">
+			<th colspan="4">
+			  <input type="checkbox" ng-click="sentCtrl.masterSelect()">
+			  <button ng-click="sentCtrl.deleteMessage()" style="margin-left: 10px" ng-show="sentCtrl.selected.length > 0"
+					  class="btn btn-default" type="button">
+				<i class="fa fa-trash-o"></i>
+			  </button>
+		<div class="input-group animated fadeInDown pull-right">
+		  <input type="text" ng-model="query" class="form-control" placeholder="search sent..">
+		  <span class="input-group-btn">
+			<button class="btn-u" ng-click="sentCtrl.search(query)" ype="button">Go</button>
+		  </span>
+		</div>
+		</th>
+
+
+		</tr>
+		</thead>
+		<tbody ng-if="sentCtrl.messages.total > 0">
+		  <tr  ng-repeat="message in sentCtrl.messages.data">
+			<td class="mail-action">
+			  <input type="checkbox" ng-click="sentCtrl.selectMail(message)" ng-checked="message.checked || sentCtrl.master">
+			</td>
+			<td class="mail-sender">To: {{message.to}}</td>
+			<td class="mail-subject"><a href ng-href="/#/{{sentCtrl.userType}}/sent/{{message.id}}">{{message.subject}}</a></td>
+			<td class="mail-date">{{message.created_at | formatdate:'YYYY-MM-DD':'DD/MM/YYYY'}}</td>
+		  </tr>
+		</tbody>
+	  </table>
+	  <!--end sent table -->
+
+	</div>
+	<!--/end row-->
+
+  </div>
+
+</div>

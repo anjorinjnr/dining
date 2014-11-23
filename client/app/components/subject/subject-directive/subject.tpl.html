@@ -1,0 +1,15 @@
+<div ng-switch on="multiple">
+    <select ng-switch-when="!multiple" data-placeholder="Select a subject"
+            class="form-control"
+            ng-model="selectedSubject"
+            ng-options="subject.title for subject in subjects track by subject.id">
+    </select>
+
+    <select ng-switch-when="multiple" data-placeholder="Select one or more subjects"
+            class="form-control"
+            ng-model="selectedSubjects"
+            ng-options="subject.title for subject in subjects track by subject.id"
+            multiple>
+
+    </select>
+</div>
