@@ -15,11 +15,11 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 ClassLoader::addDirectories(array(
 	app_path() . '/commands',
-	app_path() . '/Neartutor/Controller',
-	app_path() . '/Neartutor/Models',
-	app_path() . '/Neartutor/Repository',
-	app_path() . '/Neartutor/Services',
-	app_path() . '/Neartutor/Traits',
+	app_path() . '/Chefme/Controller',
+	app_path() . '/Chefme/Models',
+	app_path() . '/Chefme/Repository',
+	app_path() . '/Chefme/Services',
+	app_path() . '/Chefme/Traits',
 	app_path() . '/database/seeds',
 ));
 
