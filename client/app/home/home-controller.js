@@ -4,6 +4,9 @@ define([], function () {
 
         this.authService = authService;
         $scope.tipService = tipService;
+        this.meals = [
+
+        ];
         //this.user = authService.currentUser() || {};
 
     };

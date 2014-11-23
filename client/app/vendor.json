@@ -17,5 +17,7 @@
     "assets/vendor/angular-strap/dist/angular-strap.tpl.min.js",
     "assets/vendor/angular-slider-master/angular-slider.min.js",
     "assets/vendor/back-to-top.js",
-    "assets/vendor/plugins/form.sliders.js"
+    "assets/vendor/angular-ui-calendar/src/calendar.js",
+    "assets/vendor/fullcalendar/dist/fullcalendar.js",
+    "assets/vendor/fullcalendar/dist/gcal.js"
 ]

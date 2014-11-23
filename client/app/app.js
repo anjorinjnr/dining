@@ -44,7 +44,8 @@ define([
         'angularFileUpload',
         'nt.state-town-area',
         'nt.select-subject',
-        'nt.mail'
+        'nt.mail',
+        'ui.calendar'
     ]);
     //console.log(LoginCtrl);
 

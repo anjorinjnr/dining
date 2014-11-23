@@ -1,9 +1,21 @@
+.header-nav {
+    background-color: #e00000
+}
+div.centre
+{
+    width: 117px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .navbar {
     margin-bottom: 0;
 }
 .navbar-header {
     width: 100%;
 }
+
 .navbar-default .navbar-nav>li>a {
     color: #fff;
 }
@@ -11,15 +23,16 @@
     margin-top: 10px;
 }
 
-.main-logo{
+/*.main-logo{*/
 
-    width:120px;
-    display: block;
-    margin: auto;
-}
+    /*width:120px;*/
+    /*display: block;*/
+    /*margin: auto;*/
+/*}*/
 .logo{
-    height: 25px;
-    width: 120px;
+    height: 27px;
+    width: 117px;
+
 }
 
 .top-img {
@@ -104,4 +117,9 @@ li.active {
     font-size: 18px !important;
     padding-top:   10px !important;
     height: 50px;
+}
+
+.hiw-img {
+    width: 306px;
+    height: 289px;
 }

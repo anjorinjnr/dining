@@ -5,6 +5,8 @@ define([], function () {
 
     var UserCtrl = function ($scope, $state, userService, authService, tipService,
                              $modal, $upload) {
+
+
         this.user = authService.currentUser();
         this.uploader_ = $upload;
 
