@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '127.0.0.1',
-			'database'  => 'chefme',
+			'database'  => 'chefmedb',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => 'eaTloh2mOk',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
