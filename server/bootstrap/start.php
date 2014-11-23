@@ -27,7 +27,7 @@ $app = new Illuminate\Foundation\Application;
 $env = $app->detectEnvironment(array(
 
 	'development' => array('eanjorin-macbookpro.roam.corp.google.com'),
-	'production' => array('blue-ocean')
+	'production' => array('chefme')
 
 ));
 
